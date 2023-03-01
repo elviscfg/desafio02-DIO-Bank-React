@@ -1,16 +1,32 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "./AppContext";
 
 export const Header = () => {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    setIsLoggedIn(false);
+    navigate("/");
+  };
+
   return (
-    <Box as="section" color="#F7FAFC" pt="10px" pb="32px" px="32px">
-      <center>
-        <Heading fontWeight="800" fontSize="42px">
-          Dio Bank
-        </Heading>
-        <Text fontWeight="500" pt="16px">
-          Your online Bank. For better control of your financial life.{" "}
-        </Text>
-      </center>
-    </Box>
+    <Flex padding={"5px"}>
+      <Box>
+        <center>
+          <Heading fontWeight="800" fontSize="36px" color="#F7FAFC">
+            Dio Bank
+          </Heading>
+        </center>
+      </Box>
+      {isLoggedIn && (
+        <>
+          <Spacer />
+          <Button onClick={() => logout()}>Sair</Button>
+        </>
+      )}
+    </Flex>
   );
 };
