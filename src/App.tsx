@@ -1,11 +1,14 @@
-import { ChakraProvider} from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 
 import { Card } from "./components/Card";
+import { Layout } from "./components/Layout";
 
 function App() {
   return (
     <ChakraProvider>
-      <Card title="Sign in"></Card>
+      <Layout>
+        <Card ></Card>
+      </Layout>
     </ChakraProvider>
   );
 }

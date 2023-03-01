@@ -7,7 +7,7 @@ export const Header = () => {
         Dio Bank
       </Heading>
       <Text fontWeight="500" fontSize="24px" pt="16px">
-        Your online Bank. Start better contolling your financial life.{" "}
+        Your online Bank. For better control of your financial life.{" "}
       </Text>
     </Box>
   );
